@@ -58,11 +58,11 @@ public class UserInterface {
             }
         }
 
-        updateLabels(ants);
+        UpdateLabels(ants);
         ShowReverseButtons(ants);
     }
 
-    public void updateLabels(Ant[] ants) {
+    public void UpdateLabels(Ant[] ants) {
         for (int i = 0; i < ants.length; i++) {
             antIDLabels[i].antLabel.setBounds(scale * ants[i].getPosition(), height / 2, 25, 30);
             panel.add(antIDLabels[i].antLabel);

@@ -8,20 +8,38 @@ public class CreepingGame {
     private Pole pole;
     private Ant[] ants;
 
-    /* 每次执行下一步所执行的具体时长，例如 step = 1 则执行一次代表经历一秒钟。 */
-    private int step;
+    /* 每次执行下一步所执行的具体时长，例如 incTime = 1 则执行一次代表经历一秒钟。 */
+    private int incTime;
 
     /* 目前游戏的时长 */
-    private int currentTime = 0;
+    private int time = 0;
 
-    private boolean finished = false;
+    /* 标识游戏是否结束（是否所有蚂蚁都离开木杆） */
+    private boolean isEnded = false;
 
-    private UserInterface userInterface;
+    /* 负责传递游戏数据给 Controller(creepingGameDelegate) */
+    private CreepingGameDelegate creepingGameDelegate;
 
+    /**
+     * 在初始化 CreepingGame 的时候调用
+     * @param creepingGameDelegate
+     */
+    public void setCreepingGameDelegate(CreepingGameDelegate creepingGameDelegate) {
+        this.creepingGameDelegate = creepingGameDelegate;
+    }
 
-    public CreepingGame(int incTime, int lengthOfPole, int velocityOfAnts, int... antsPositions) {
+    /**
+     * 给定参数创建游戏
+     *
+     * @param incTime        每次执行下一步所执行的具体时长，例如 incTime = 1 则执行一次代表经历一秒钟。
+     * @param lengthOfPole   木杆长度
+     * @param velocityOfAnts 蚂蚁的速度（所有蚂蚁都相同）
+     * @param antsPositions  蚂蚁的位置数组
+     * @param antsDirections 蚂蚁的方向数组
+     */
+    public CreepingGame(int incTime, int lengthOfPole, int velocityOfAnts, int[] antsPositions, int[] antsDirections) {
 
-        step = incTime;
+        this.incTime = incTime;
 
         /* 创建木杆 */
         pole = new Pole(lengthOfPole);
@@ -31,61 +49,52 @@ public class CreepingGame {
         ants = new Ant[count];
 
         for (int i = 0; i < count; i++) {
-            ants[i] = new Ant(antsPositions[i], velocityOfAnts);
+            ants[i] = new Ant(antsPositions[i], velocityOfAnts, antsDirections[i]);
         }
     }
 
-    public void start() {
+    /**
+     * 开始游戏，由 PlayRoom 调用
+     */
+    public void playGame() {
         Timer timer = new Timer(300, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (!finished) {
-                    nextStep();
+                if (!isEnded) {
+                    NextStep();
                 }
             }
         });
         timer.start();
+    }
 
-//        while (!finished) {
-//            nextStep();
+//    /**
+//     * 从头至尾执行一次游戏
+//     */
+//    public void Play() {
+//        userInterface = new UserInterface();
+//        userInterface.init(ants);
 //
-//            /* 一秒钟刷新一次 */
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException ex) {
-//                Thread.currentThread().interrupt();
-//            }
-//        }
-        // 在添加 Listener 后好像因为多线程，会把图形界面给睡死，出现问题。
-    }
+//        userInterface.getStartButton().addActionListener(e -> Start());
+//    }
 
-    /**
-     * 从头至尾执行一次游戏
-     */
-    public void play() {
-        userInterface = new UserInterface();
-        userInterface.init(ants);
-
-        userInterface.getStartButton().addActionListener(e -> start());
-    }
-
-    private void nextStep() {
+    private void NextStep() {
         /* 更新时间 */
-        currentTime += step;
+        time += incTime;
 
-        updateAnts();
-        configureFinished();
-        updateView();
+        UpdateAnts();
+        UpdateView();
+        CheckIsEnded();
     }
 
     /**
-     * 更新下一步之后蚂蚁的位置和方向
+     * 更新蚂蚁的位置和方向
      */
-    private void updateAnts() {
+    private void UpdateAnts() {
         Ant[] sortedAnts = new Ant[ants.length];
 
         for (int i = 0; i < ants.length; i++) {
-            ants[i].move(step);
+            ants[i].move(incTime);
             sortedAnts[i] = ants[i];
         }
 
@@ -104,24 +113,41 @@ public class CreepingGame {
     }
 
     /**
-     * 根据目前的游戏状态更新 UI
+     * 传递更新后的游戏数据，让 CreepingGameDelegate 更新 UI 信息
      */
-    private void updateView() {
-        userInterface.updateLabels(ants);
+    private void UpdateView() {
+        creepingGameDelegate.updateView(getAntsPositions(), getAntsDirections());
+        creepingGameDelegate.updateRecordTime(time);
+    }
+
+    private int[] getAntsPositions() {
+        int[] antsPositions = new int[ants.length];
+        for (int i = 0; i < ants.length; i++) {
+            antsPositions[i] = ants[i].getPosition();
+        }
+        return antsPositions;
+    }
+
+    private int[] getAntsDirections() {
+        int[] antsDirections = new int[ants.length];
+        for (int i = 0; i < ants.length; i++) {
+            antsDirections[i] = ants[i].getDirection();
+        }
+        return antsDirections;
     }
 
     /**
-     * 判断游戏是否结束，若结束，设置 finished 为 true.
+     * 判断游戏是否结束，若结束，设置 isEnded 为 true.
      */
-    private void configureFinished() {
+    private void CheckIsEnded() {
         for (int i = 0; i < ants.length; i++) {
             int position = ants[i].getPosition();
             if (position > 0 && position < pole.getLength()) {
-                finished = false;
+                isEnded = false;
                 return;
             }
             if (i == ants.length - 1) {
-                finished = true;
+                isEnded = true;
                 return;
             }
         }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Ant {
 
     private static int nextID = 1;
@@ -56,6 +58,13 @@ public class Ant {
         this.velocity = velocity;
     }
 
+    public Ant(int position, int velocity, int direction) {
+        this.id = idFactory();
+        this.position = position;
+        this.velocity = velocity;
+        this.direction = direction;
+    }
+
     public void changeDirection() {
         this.direction = -this.direction;
     }
@@ -63,11 +72,5 @@ public class Ant {
     public void move(int time) {
         this.position += direction * velocity * time;
     }
-
-    public void moveTo(int position) {
-        this.position = position;
-    }
-
-
 
 }

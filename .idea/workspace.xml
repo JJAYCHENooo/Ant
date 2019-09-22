@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="" />
+    <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/CreepingGameDelegate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreepingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreepingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QvMwlBZPeXHVwVjh6KUvNoSTDL" />
   <component name="PropertiesComponent">
@@ -50,10 +67,28 @@
       <option name="presentableId" value="Default" />
       <updated>1568646856593</updated>
       <workItem from="1568646858172" duration="74000" />
+      <workItem from="1568717951409" duration="5000" />
+      <workItem from="1568889654965" duration="2857000" />
+      <workItem from="1569041723539" duration="50000" />
+      <workItem from="1569068462560" duration="1000" />
+      <workItem from="1569074635409" duration="5449000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
