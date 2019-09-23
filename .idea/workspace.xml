@@ -12,9 +12,10 @@
       <change beforePath="$PROJECT_DIR$/out/production/antpro/Pole.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanelSendParamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,6 +96,7 @@
       <workItem from="1569219254269" duration="2315000" />
       <workItem from="1569222529234" duration="1851000" />
       <workItem from="1569237320497" duration="16000" />
+      <workItem from="1569241597983" duration="1852000" />
     </task>
     <servers />
   </component>

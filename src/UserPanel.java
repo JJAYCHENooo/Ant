@@ -6,26 +6,47 @@ import java.awt.event.ActionListener;
 public class UserPanel implements PlayRoomUpdateViewService {
     private UserPanelSendParamService userPanelSendParamService;
 
-    //UI组件
-    private JButton buttonStart = new JButton("Start");
-    private JButton buttonReset = new JButton("Reset");
-    private JButton buttonAutoPlay = new JButton("AutoPlay");
-    private JLabel labelMaxTime = new JLabel("maxTime:");
-    private JLabel labelMinTime = new JLabel("minTime:");
-    private JLabel labelTimeCount = new JLabel("0");
+    public void setUserPanelSendParamService(UserPanelSendParamService userPanelSendParamService) {
+        this.userPanelSendParamService = userPanelSendParamService;
+    }
+
+    /** UI 窗口大小参数 */
     private int width = 900;
     private int height = 500;
     private int scale = width / 300;
 
-    //蚂蚁
+    /** 游戏记录标签*/
+    private JLabel labelMaxTime = new JLabel("maxTime:");
+    private JLabel labelMinTime = new JLabel("minTime:");
+
+    /** 游戏当前时长标签 */
+    private JLabel labelTimeCount = new JLabel("0");
+
+    /** 游戏控制标签 */
+    private JButton startButton = new JButton("Start");
+    private JButton resetButton = new JButton("Reset");
+    private JButton autoPlayButton = new JButton("AutoPlay");
+
+
+    /** 蚂蚁和 ID 标签 */
     private JLabel[] ants = new JLabel[5];
+    private JLabel[] antsIDLabels = new JLabel[5];
+
+    /** 蚂蚁和 ID 标签在 Y-Axis 的位置*/
+    private int antPositionYAxis = 200;
+    private int antIDLabelYAxis = 150;
+
+    /** 蚂蚁方向控制按钮 */
+    private JButton[] antsDirectionChangeButtons = new JButton[5];
+
+    /** 蚂蚁方向控制按钮在 Y-Axis 的位置*/
+    private int antsDirectionChangeButtonYAxis = 280;
+
+    /** 蚂蚁方向数组 */
     private int[] antsDirections = new int[]{-1, -1, -1, -1, -1};
-    private JLabel[] antsIdLabel = new JLabel[5];
-    private int[] antsPosition = new int[]{30, 80, 110, 160, 250};
-    private JButton antsDirectionsChange[] = new JButton[5];
-    private int antY = 200;
-    private int labelY = 150;
-    private int buttonY = 280;
+
+    /** 蚂蚁位置数组 */
+    private int[] antsPositions = new int[]{30, 80, 110, 160, 250};
 
     //UI布局
     private JPanel mainPanel = new JPanel();
@@ -38,16 +59,16 @@ public class UserPanel implements PlayRoomUpdateViewService {
         frame = new JFrame("Ant Game");
 
         frame.setBounds(400, 400, width, height);
-        frame.setIconImage(new ImageIcon("./Ant/resources/ant.png").getImage());
+        frame.setIconImage(new ImageIcon("./resources/ant.png").getImage());
 
         //布局
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.add(panelMenu, BorderLayout.NORTH);
         panelMenu.add(panelRecord, BorderLayout.WEST);
         panelMenu.add(panelCommand, BorderLayout.EAST);
-        panelCommand.add(buttonReset);
-        panelCommand.add(buttonStart);
-        panelCommand.add(buttonAutoPlay);
+        panelCommand.add(resetButton);
+        panelCommand.add(startButton);
+        panelCommand.add(autoPlayButton);
         panelRecord.add(labelMaxTime, BorderLayout.NORTH);
         panelRecord.add(labelMinTime, BorderLayout.SOUTH);
         panelMenu.add(labelTimeCount, BorderLayout.CENTER);
@@ -55,40 +76,42 @@ public class UserPanel implements PlayRoomUpdateViewService {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //ant
+        /** 显示蚂蚁 */
         for (int i = 0; i < 5; i++) {
-            ants[i] = new JLabel(new ImageIcon("./Ant/resources/antSLeft.png"));
-            antsIdLabel[i] = new JLabel(String.valueOf(i + 1));
-            antsDirectionsChange[i] = new JButton("Turn");
+            /** 蚂蚁图片 */
+            ants[i] = new JLabel(new ImageIcon("./resources/antSLeft.png"));
+            /** 蚂蚁 ID 标签 */
+            antsIDLabels[i] = new JLabel(String.valueOf(i + 1));
+            /** 蚂蚁改变方向按钮*/
+            antsDirectionChangeButtons[i] = new JButton("Turn");
         }
 
         mainPanel.setLayout(null);
         setAntsAtStart();
 
-        //事件响应
-        buttonStart.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                userPanelSendParamService.createGame(antsDirections);
-            }
-        });
+        /** 为开始按钮添加响应事件 */
+        startButton.addActionListener(e -> userPanelSendParamService.createGame(antsDirections));
+
+        /** 为蚂蚁的转向按钮添加响应事件 */
         for(int i = 0; i < 5; i++) {
             final int finalI = i;
-            antsDirectionsChange[i].addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        setAntDirection(finalI, antsDirections[finalI] * -1);
-                    }
-                });
+            antsDirectionChangeButtons[i].addActionListener(e -> setAntDirection(finalI, -antsDirections[finalI]));
         }
-        buttonReset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                userPanelSendParamService.resetGame();
-                resetView();
 
-            }
+        /** 为 reset 按钮添加响应事件 */
+        resetButton.addActionListener(e -> {
+            userPanelSendParamService.resetGame();
+            resetView();
         });
+    }
+
+    private void setAntDirection(int antIndex, int antDirection) {
+        if(antDirection == antsDirections[antIndex]) return;
+        if(antDirection == 1) {
+            ants[antIndex].setIcon(new ImageIcon("./resources/antSRight.png"));
+        }
+        else ants[antIndex].setIcon(new ImageIcon("./resources/antSLeft.png"));
+        antsDirections[antIndex] = antDirection;
     }
 
     private void setAntsAtStart() {
@@ -99,18 +122,16 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
         for(int i = 0; i < 5; i++) {
             mainPanel.add(ants[i]);
-            ants[i].setBounds(antsPosition[i] * scale, antY, 50, 30);
-            mainPanel.add(antsIdLabel[i]);
-            antsIdLabel[i].setBounds(antsPosition[i] * scale, labelY, 30, 30);
-            mainPanel.add(antsDirectionsChange[i]);
-            antsDirectionsChange[i].setBounds(antsPosition[i] * scale, buttonY, 60, 30);
+            ants[i].setBounds(antsPositions[i] * scale, antPositionYAxis, 50, 30);
+            mainPanel.add(antsIDLabels[i]);
+            antsIDLabels[i].setBounds(antsPositions[i] * scale, antIDLabelYAxis, 30, 30);
+            mainPanel.add(antsDirectionChangeButtons[i]);
+            antsDirectionChangeButtons[i].setBounds(antsPositions[i] * scale, antsDirectionChangeButtonYAxis, 60, 30);
 
         }
     }
 
-    public void setUserPanelSendParamService(UserPanelSendParamService userPanelSendParamService) {
-        this.userPanelSendParamService = userPanelSendParamService;
-    }
+
 
 //    private int width = 900;
 //    private int height = 300;
@@ -132,19 +153,10 @@ public class UserPanel implements PlayRoomUpdateViewService {
     public void updateView(int[] antsPositions, int[] antsDirections, int timeCount) {
         labelTimeCount.setText(String.valueOf(timeCount));
         for(int i = 0; i < 5; i++) {
-            ants[i].setLocation(antsPositions[i] * scale, antY);
-            antsIdLabel[i].setLocation(antsPositions[i] * scale, labelY);
+            ants[i].setLocation(antsPositions[i] * scale, antPositionYAxis);
+            antsIDLabels[i].setLocation(antsPositions[i] * scale, antIDLabelYAxis);
             setAntDirection(i, antsDirections[i]);
         }
-    }
-
-    private void setAntDirection(int antIndex, int antDirection) {
-        if(antDirection == antsDirections[antIndex]) return;
-        if(antDirection == 1) {
-            ants[antIndex].setIcon(new ImageIcon("./Ant/resources/antSRight.png"));
-        }
-        else ants[antIndex].setIcon(new ImageIcon("./Ant/resources/antSLeft.png"));
-        antsDirections[antIndex] = antDirection;
     }
 
     @Override
