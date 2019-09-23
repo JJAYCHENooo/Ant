@@ -36,6 +36,11 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
     }
 
+    @Override
+    public void resetView() {
+
+    }
+
 //    private class AntIDLabel {
 //        public Label antLabel;
 //        public Label idLabel;

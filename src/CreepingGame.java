@@ -117,7 +117,10 @@ public class CreepingGame {
      */
     private void UpdateView() {
         creepingGameUpdateViewService.updateView(getAntsPositions(), getAntsDirections(), timeCount);
-        creepingGameUpdateViewService.updateRecordTime(timeCount);
+        if(isEnded){
+            creepingGameUpdateViewService.updateRecordTime(timeCount);
+            creepingGameUpdateViewService.gameEndedMessage();
+        }
     }
 
     private int[] getAntsPositions() {

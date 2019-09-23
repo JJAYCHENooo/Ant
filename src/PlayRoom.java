@@ -12,6 +12,9 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
     private int minTime = 0;
     private boolean isPlayed = false;
 
+    private int autoIndex = 0;
+    private boolean isAutoplay = false;
+
 //    private int[] antsDirections = {-1, -1, -1, -1, -1};
 
 //    public void setAntsDirections(int[] antsDirections) {
@@ -48,6 +51,15 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
         playRoomUpdateViewService.updateRecord(maxTime, minTime);
     }
 
+    @Override
+    public void gameEndedMessage(){
+        resetGame();
+        if (isAutoplay){
+            autoRunGame();
+            autoIndex++;
+        }
+    }
+
 
     @Override
     public void createGame(int[] antsDirections) {
@@ -58,5 +70,20 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
     @Override
     public void resetGame() {
         this.creepingGame = null;
+    }
+
+    @Override
+    public void autoRunGame() {
+        int[] directions = new int[5];
+        directions[0] = autoIndex & 16;
+        directions[1] = autoIndex & 8;
+        directions[2] = autoIndex & 4;
+        directions[3] = autoIndex & 2;
+        directions[4] = autoIndex & 1;
+        createGame(directions);
+        if (autoIndex == 31) {
+            autoIndex = 0;
+            isAutoplay = false;
+        }
     }
 }
