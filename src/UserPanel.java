@@ -38,7 +38,7 @@ public class UserPanel implements PlayRoomUpdateViewService {
         frame = new JFrame("Ant Game");
 
         frame.setBounds(400, 400, width, height);
-        frame.setIconImage(new ImageIcon("./Ant/resources/ant.png").getImage());
+        frame.setIconImage(new ImageIcon("./resources/ant.png").getImage());
 
         //布局
         frame.add(mainPanel, BorderLayout.CENTER);
@@ -57,7 +57,7 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
         //ant
         for (int i = 0; i < 5; i++) {
-            ants[i] = new JLabel(new ImageIcon("./Ant/resources/antSLeft.png"));
+            ants[i] = new JLabel(new ImageIcon("./resources/antSLeft.png"));
             antsIdLabel[i] = new JLabel(String.valueOf(i + 1));
             antsDirectionsChange[i] = new JButton("Turn");
         }
