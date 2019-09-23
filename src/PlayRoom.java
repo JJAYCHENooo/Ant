@@ -88,6 +88,7 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
     @Override
     public void createGame(int[] antsDirections) {
         this.creepingGame = new CreepingGame(incTime, lengthOfPole, velocityOfAnts, antsPositions, antsDirections);
+        this.creepingGame.setCreepingGameUpdateViewService(this);
         this.creepingGame.playGame();
     }
 

@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/Ant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGameUpdateViewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/PlayRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/PlayRoomUpdateViewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/Pole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanelSendParamService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,6 +94,7 @@
       <workItem from="1569215860235" duration="3271000" />
       <workItem from="1569219254269" duration="2315000" />
       <workItem from="1569222529234" duration="1851000" />
+      <workItem from="1569237320497" duration="16000" />
     </task>
     <servers />
   </component>
