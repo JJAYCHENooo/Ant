@@ -2,18 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CreepingGameDelegate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PlayRoomUpdateViewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserPanelSendParamService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ant.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ant.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CreepingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreepingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreepingGameDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreepingGameUpdateViewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Ant" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -27,8 +33,10 @@
   </component>
   <component name="ProjectId" id="1QvMwlBZPeXHVwVjh6KUvNoSTDL" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,6 +80,10 @@
       <workItem from="1569041723539" duration="50000" />
       <workItem from="1569068462560" duration="1000" />
       <workItem from="1569074635409" duration="5449000" />
+      <workItem from="1569135381557" duration="111000" />
+      <workItem from="1569135549236" duration="54000" />
+      <workItem from="1569214082917" duration="1337000" />
+      <workItem from="1569215860235" duration="3271000" />
     </task>
     <servers />
   </component>

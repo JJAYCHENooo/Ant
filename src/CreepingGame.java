@@ -12,20 +12,20 @@ public class CreepingGame {
     private int incTime;
 
     /* 目前游戏的时长 */
-    private int time = 0;
+    private int timeCount = 0;
 
     /* 标识游戏是否结束（是否所有蚂蚁都离开木杆） */
     private boolean isEnded = false;
 
     /* 负责传递游戏数据给 Controller(creepingGameDelegate) */
-    private CreepingGameDelegate creepingGameDelegate;
+    private CreepingGameUpdateViewService creepingGameUpdateViewService;
 
     /**
      * 在初始化 CreepingGame 的时候调用
-     * @param creepingGameDelegate
+     * @param creepingGameUpdateViewService
      */
-    public void setCreepingGameDelegate(CreepingGameDelegate creepingGameDelegate) {
-        this.creepingGameDelegate = creepingGameDelegate;
+    public void setCreepingGameUpdateViewService(CreepingGameUpdateViewService creepingGameUpdateViewService) {
+        this.creepingGameUpdateViewService = creepingGameUpdateViewService;
     }
 
     /**
@@ -80,7 +80,7 @@ public class CreepingGame {
 
     private void NextStep() {
         /* 更新时间 */
-        time += incTime;
+        timeCount += incTime;
 
         UpdateAnts();
         UpdateView();
@@ -116,8 +116,8 @@ public class CreepingGame {
      * 传递更新后的游戏数据，让 CreepingGameDelegate 更新 UI 信息
      */
     private void UpdateView() {
-        creepingGameDelegate.updateView(getAntsPositions(), getAntsDirections());
-        creepingGameDelegate.updateRecordTime(time);
+        creepingGameUpdateViewService.updateView(getAntsPositions(), getAntsDirections(), timeCount);
+        creepingGameUpdateViewService.updateRecordTime(timeCount);
     }
 
     private int[] getAntsPositions() {
