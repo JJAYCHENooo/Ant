@@ -81,9 +81,22 @@ public class UserPanel implements PlayRoomUpdateViewService {
                     }
                 });
         }
+        buttonReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                userPanelSendParamService.resetGame();
+                resetView();
+
+            }
+        });
     }
 
     private void setAntsAtStart() {
+        for(int i = 0; i < 5; i++) {
+            setAntDirection(i, -1);
+
+        }
+
         for(int i = 0; i < 5; i++) {
             mainPanel.add(ants[i]);
             ants[i].setBounds(antsPosition[i] * scale, antY, 50, 30);
@@ -119,8 +132,8 @@ public class UserPanel implements PlayRoomUpdateViewService {
     public void updateView(int[] antsPositions, int[] antsDirections, int timeCount) {
         labelTimeCount.setText(String.valueOf(timeCount));
         for(int i = 0; i < 5; i++) {
-            ants[i].setLocation(antsPositions[i], antY);
-            antsIdLabel[i].setLocation(antsPosition[i], labelY);
+            ants[i].setLocation(antsPositions[i] * scale, antY);
+            antsIdLabel[i].setLocation(antsPositions[i] * scale, labelY);
             setAntDirection(i, antsDirections[i]);
         }
     }
