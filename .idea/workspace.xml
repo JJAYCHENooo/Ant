@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/Ant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGameUpdateViewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/PlayRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/PlayRoomUpdateViewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/Pole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanelSendParamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/ant.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/antSLeft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ant/antSRight.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CreepingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreepingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayRoomUpdateViewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoomUpdateViewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -110,7 +91,7 @@
       <workItem from="1569219254269" duration="2315000" />
       <workItem from="1569222529234" duration="1851000" />
       <workItem from="1569237320497" duration="16000" />
-      <workItem from="1569241597983" duration="3550000" />
+      <workItem from="1569241597983" duration="3663000" />
     </task>
     <servers />
   </component>
