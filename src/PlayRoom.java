@@ -1,5 +1,5 @@
 public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendParamService {
-    private static CreepingGame creepingGame;
+    private CreepingGame creepingGame;
 
     private PlayRoomUpdateViewService playRoomUpdateViewService;
 
