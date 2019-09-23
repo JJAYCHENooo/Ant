@@ -4,23 +4,27 @@
     <list default="true" id="fa0bcaae-f26e-473b-b0ad-a7418daf141a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ant.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ant.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/Ant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/CreepingGameUpdateViewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/PlayRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/PlayRoomUpdateViewService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/Pole.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/antpro/UserPanelSendParamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/Ant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/CreepingGameUpdateViewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/PlayRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/PlayRoomUpdateViewService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/Pole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/UserPanelSendParamService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/ant.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/antSLeft.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ant/antSRight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CreepingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CreepingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayRoomUpdateViewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayRoomUpdateViewService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserPanel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,28 +32,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Ant" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="PlayRoom.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayRoom.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3202">
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserPanel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UserPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,22 +43,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/UserPanel.java" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="197" />
     <option name="y" value="-18" />
@@ -84,32 +50,6 @@
     <option name="height" value="1049" />
   </component>
   <component name="ProjectId" id="1QvMwlBZPeXHVwVjh6KUvNoSTDL" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="AndroidView" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Ant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ant" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -137,6 +77,9 @@
     <configuration name="PlayRoom" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PlayRoom" />
       <module name="Ant" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
@@ -167,46 +110,9 @@
       <workItem from="1569219254269" duration="2315000" />
       <workItem from="1569222529234" duration="1851000" />
       <workItem from="1569237320497" duration="16000" />
-      <workItem from="1569241597983" duration="1852000" />
+      <workItem from="1569241597983" duration="3550000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32972974" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16536458" />
-      <window_info anchor="right" id="Database" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -217,37 +123,12 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PlayRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3202">
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UserPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

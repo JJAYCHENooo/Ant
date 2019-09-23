@@ -39,6 +39,8 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
         this.playRoomUpdateViewService = playRoomUpdateViewService;
     }
 
+    /** ================== CreepingGameUpdateViewService ==================== */
+
     /**
      * 当 creepingGame 更新下一步时，便会调用该函数。该函数调用 playRoomUpdateViewService.updateView
      * 让 UserPanel 更新蚂蚁的 UI.
@@ -85,6 +87,9 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
         }
     }
 
+    /** ===================================================================== */
+
+    /** ==================== UserPanelSendParamService ====================== */
     @Override
     public void createGame(int[] antsDirections) {
         this.creepingGame = new CreepingGame(incTime, lengthOfPole, velocityOfAnts, antsPositions, antsDirections);
@@ -94,6 +99,7 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
 
     @Override
     public void resetGame() {
+        this.creepingGame.setEnded(true);
         this.creepingGame = null;
     }
 
@@ -111,6 +117,7 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
             isAutoplay = false;
         }
     }
+    /** ===================================================================== */
 
     /**
      * 整个程序的入口

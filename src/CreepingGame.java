@@ -8,16 +8,20 @@ public class CreepingGame {
     private Pole pole;
     private Ant[] ants;
 
-    /* 每次执行下一步所执行的具体时长，例如 incTime = 1 则执行一次代表经历一秒钟。 */
+    /** 每次执行下一步所执行的具体时长，例如 incTime = 1 则执行一次代表经历一秒钟。 */
     private int incTime;
 
-    /* 目前游戏的时长 */
+    /** 目前游戏的时长 */
     private int timeCount = 0;
 
-    /* 标识游戏是否结束（是否所有蚂蚁都离开木杆） */
+    /** 标识游戏是否结束（是否所有蚂蚁都离开木杆） */
     private boolean isEnded = false;
 
-    /* 负责传递游戏数据给 Controller(creepingGameDelegate) */
+    public void setEnded(boolean ended) {
+        isEnded = ended;
+    }
+
+    /** 负责传递游戏数据给 Controller(creepingGameDelegate) */
     private CreepingGameUpdateViewService creepingGameUpdateViewService;
 
     /**
@@ -67,16 +71,6 @@ public class CreepingGame {
         });
         timer.start();
     }
-
-//    /**
-//     * 从头至尾执行一次游戏
-//     */
-//    public void Play() {
-//        userInterface = new UserInterface();
-//        userInterface.init(ants);
-//
-//        userInterface.getStartButton().addActionListener(e -> Start());
-//    }
 
     private void NextStep() {
         /* 更新时间 */

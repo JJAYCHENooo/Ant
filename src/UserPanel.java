@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class UserPanel implements PlayRoomUpdateViewService {
     private UserPanelSendParamService userPanelSendParamService;
@@ -76,7 +74,7 @@ public class UserPanel implements PlayRoomUpdateViewService {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        /** 显示蚂蚁 */
+        /** 初始化蚂蚁相关标签 */
         for (int i = 0; i < 5; i++) {
             /** 蚂蚁图片 */
             ants[i] = new JLabel(new ImageIcon("./resources/antSLeft.png"));
@@ -87,6 +85,10 @@ public class UserPanel implements PlayRoomUpdateViewService {
         }
 
         mainPanel.setLayout(null);
+
+        /**设置蚂蚁初始参数
+         * 将蚂蚁相关标签添加到 Panel 并显示
+         */
         setAntsAtStart();
 
         /** 为开始按钮添加响应事件 */
@@ -115,11 +117,12 @@ public class UserPanel implements PlayRoomUpdateViewService {
     }
 
     private void setAntsAtStart() {
+        /** 设置默认朝向 */
         for(int i = 0; i < 5; i++) {
             setAntDirection(i, -1);
-
         }
 
+        /** 将蚂蚁相关标签添加至 Panel 中 */
         for(int i = 0; i < 5; i++) {
             mainPanel.add(ants[i]);
             ants[i].setBounds(antsPositions[i] * scale, antPositionYAxis, 50, 30);
@@ -127,31 +130,29 @@ public class UserPanel implements PlayRoomUpdateViewService {
             antsIDLabels[i].setBounds(antsPositions[i] * scale, antIDLabelYAxis, 30, 30);
             mainPanel.add(antsDirectionChangeButtons[i]);
             antsDirectionChangeButtons[i].setBounds(antsPositions[i] * scale, antsDirectionChangeButtonYAxis, 60, 30);
-
         }
     }
 
+    /** 当用户单击 reset 按钮时被调用 */
+    public void resetView() {
+        setAntsAtStart();
+    }
 
 
-//    private int width = 900;
-//    private int height = 300;
-//
-//    private int scale = width / 300; // 木杆长度为300厘米，计算一个缩放的比例
-//
-//    private JFrame frame;
-//    private JPanel panel;
-//
-//    private AntIDLabel[] antIDLabels;
-//    private Button startButton;
-//    private Button resetButton;
-//
-//    public Button getStartButton() {
-//        return startButton;
-//    }
+    /** ==================== PlayRoomUpdateViewService ====================== */
 
+    /**
+     * 接受 PlayRoom 的调用来更新蚂蚁相关标签。游戏每执行一步该函数就被调用一次。
+     * @param antsPositions 蚂蚁位置数组
+     * @param antsDirections 蚂蚁方向数组
+     * @param timeCount 当前时间
+     */
     @Override
     public void updateView(int[] antsPositions, int[] antsDirections, int timeCount) {
+        /** 更新当前时间标签 */
         labelTimeCount.setText(String.valueOf(timeCount));
+
+        /** 更新所有蚂蚁位置标签 */
         for(int i = 0; i < 5; i++) {
             ants[i].setLocation(antsPositions[i] * scale, antPositionYAxis);
             antsIDLabels[i].setLocation(antsPositions[i] * scale, antIDLabelYAxis);
@@ -159,6 +160,11 @@ public class UserPanel implements PlayRoomUpdateViewService {
         }
     }
 
+    /**
+     * 更新游戏的历史记录。游戏结束时会调用该函数。
+     * @param maxTime 最新的 maxTime
+     * @param minTime 最新的 minTime
+     */
     @Override
     public void updateRecord(int maxTime, int minTime) {
         labelMaxTime.setText("maxTime: " + maxTime);
@@ -166,77 +172,6 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
     }
 
-    @Override
-    public void resetView() {
-        setAntsAtStart();
-    }
+    /** ===================================================================== */
 
-//    private class AntIDLabel {
-//        public Label antLabel;
-//        public Label idLabel;
-//        public Button reverseButton;
-//    }
-
-
-//    public void init(Ant[] ants) {
-//        frame = new JFrame("Game Panel");
-//        frame.setSize(width, height);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//        panel = new JPanel();
-//        panel.setLayout(null);
-//        frame.add(panel);
-//
-//        startButton = new Button("Start!");
-//        startButton.setBounds(800, 20, 70, 30);
-//        startButton.addActionListener(e -> HideReverseButtons());
-//        panel.add(startButton);
-//
-//        antIDLabels = new AntIDLabel[ants.length];
-//        for (int i = 0; i < ants.length; i++) {
-//            if (antIDLabels[i] == null) {
-//                antIDLabels[i] = new AntIDLabel();
-//                antIDLabels[i].antLabel = new Label("Ant", Label.CENTER);
-//                antIDLabels[i].idLabel = new Label(String.valueOf(ants[i].getId()), Label.CENTER);
-//                antIDLabels[i].reverseButton = new Button("Reverse");
-//                int finalI = i;
-//                antIDLabels[i].reverseButton.addActionListener(new ActionListener() {
-//                    @Override
-//                    public void actionPerformed(ActionEvent e) {
-//                        ants[finalI].changeDirection();
-//                    }
-//                });
-//            }
-//        }
-//
-//        UpdateLabels(ants);
-//        ShowReverseButtons(ants);
-//    }
-//
-//    public void UpdateLabels(Ant[] ants) {
-//        for (int i = 0; i < ants.length; i++) {
-//            antIDLabels[i].antLabel.setBounds(scale * ants[i].getPosition(), height / 2, 25, 30);
-//            panel.add(antIDLabels[i].antLabel);
-//
-//            antIDLabels[i].idLabel.setBounds(scale * ants[i].getPosition(), height / 2 - 25, 15, 30);
-//            panel.add(antIDLabels[i].idLabel);
-//        }
-//
-//        frame.setVisible(true);
-//    }
-//
-//    public void ShowReverseButtons(Ant[] ants) {
-//        for (int i = 0; i < ants.length; i++) {
-//            antIDLabels[i].reverseButton.setBounds(scale * ants[i].getPosition(), height / 2 + 30, 80, 30);
-//            panel.add(antIDLabels[i].reverseButton);
-//        }
-//
-//        frame.setVisible(true);
-//    }
-//
-//    public void HideReverseButtons(){
-//        for (int i = 0; i < antIDLabels.length; i++) {
-//            panel.remove(antIDLabels[i].reverseButton);
-//        }
-//    }
 }
