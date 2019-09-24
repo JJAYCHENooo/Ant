@@ -73,10 +73,10 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
 
     /**
      * 当creepingGame 结束时（所有蚂蚁离开木杆），便会调用该函数。
-     * 1. 负责摧毁游戏
-     * 2. 如果是 Autoplay 模式，会自动开启下一次游戏。
-     *  2.1 autoRunGame()
-     *  2.2 autoIndex++
+     * 1. 如果是 Autoplay 模式，会自动开启下一次游戏。
+     *  1.1 autoRunGame()
+     *  1.2 autoIndex++
+     * 2. 如果是非 AutoPlay 模式，在结束时接触按钮的禁用，并重置界面
      */
     @Override
     public void gameEndedMessage(){
@@ -86,6 +86,8 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
 //            this.creepingGame = null;
             autoIndex++;
             autoRunGame();
+        } else {
+            playRoomUpdateViewService.enableButtonsAfterSinglePlay();
         }
     }
 
@@ -107,7 +109,7 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
             this.autoIndex = 0;
         }
         this.creepingGame.setEnded(true);
-        this.creepingGame = null;
+        this.creepingGame = new CreepingGame();
     }
 
     @Override

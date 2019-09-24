@@ -33,6 +33,13 @@ public class CreepingGame {
     }
 
     /**
+     * CreepingGame的无参构造函数
+     */
+    public CreepingGame() {
+
+    }
+
+    /**
      * 给定参数创建游戏
      *
      * @param incTime        每次执行下一步所执行的具体时长，例如 incTime = 1 则执行一次代表经历一秒钟。

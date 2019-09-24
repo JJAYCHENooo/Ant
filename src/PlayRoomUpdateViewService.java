@@ -3,5 +3,7 @@ public interface PlayRoomUpdateViewService {
 
     void updateRecord(int maxTime, int minTime);
 
+    void enableButtonsAfterSinglePlay();
+
 //    void resetView();
 }

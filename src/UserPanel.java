@@ -30,6 +30,9 @@ public class UserPanel implements PlayRoomUpdateViewService {
     private JLabel[] ants = new JLabel[5];
     private JLabel[] antsIDLabels = new JLabel[5];
 
+    /** 木棍标签 */
+    private JLabel pole = new JLabel(new ImageIcon("./resources/pole.png"));
+
     /** 蚂蚁和 ID 标签在 Y-Axis 的位置*/
     private int antPositionYAxis = 200;
     private int antIDLabelYAxis = 150;
@@ -45,6 +48,7 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
     /** 蚂蚁位置数组 */
     private int[] antsPositions = new int[]{30, 80, 110, 160, 250};
+
 
     //UI布局
     private JPanel mainPanel = new JPanel();
@@ -71,9 +75,15 @@ public class UserPanel implements PlayRoomUpdateViewService {
         labelMaxTime.setBounds(5, 5, 100, 10);
         mainPanel.add(labelMinTime);
         labelMinTime.setBounds(5, 20, 100, 10);
+        // 添加木棍
+        mainPanel.add(pole);
+        pole.setBounds(0, 230, 900, 10);
+
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
 
         /** 初始化蚂蚁相关标签 */
         for (int i = 0; i < 5; i++) {
@@ -200,7 +210,19 @@ public class UserPanel implements PlayRoomUpdateViewService {
     public void updateRecord(int maxTime, int minTime) {
         labelMaxTime.setText("maxTime: " + maxTime);
         labelMinTime.setText("minTime: " + minTime);
+    }
 
+    /**
+     * 在单次模拟下，每次模拟结束后，重置页面，并解除按钮Start, AutoPlay, antDirectionChange的禁用
+     */
+    @Override
+    public void enableButtonsAfterSinglePlay(){
+        autoPlayButton.setEnabled(true);
+        startButton.setEnabled(true);
+        for(int i = 0; i < 5; i++) {
+            antsDirectionChangeButtons[i].setVisible(true);
+        }
+        resetView();
     }
 
     /** ===================================================================== */
