@@ -94,6 +94,9 @@ public class UserPanel implements PlayRoomUpdateViewService {
         /** 为开始按钮添加响应事件 */
         startButton.addActionListener(e -> userPanelSendParamService.createGame(antsDirections));
 
+        /** 为 autoPlay 按钮添加响应事件*/
+        autoPlayButton.addActionListener(e -> userPanelSendParamService.autoRunGame());
+
         /** 为蚂蚁的转向按钮添加响应事件 */
         for(int i = 0; i < 5; i++) {
             final int finalI = i;

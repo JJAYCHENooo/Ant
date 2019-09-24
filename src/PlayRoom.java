@@ -106,12 +106,12 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
     @Override
     public void autoRunGame() {
         int[] directions = new int[5];
-        directions[0] = autoIndex & 16;
-        directions[1] = autoIndex & 8;
-        directions[2] = autoIndex & 4;
-        directions[3] = autoIndex & 2;
-        directions[4] = autoIndex & 1;
-        createGame(directions);
+        directions[0] = (autoIndex & 16) == 16 ? 1 : -1;
+        directions[1] = (autoIndex & 8) == 8 ? 1 : -1;
+        directions[2] = (autoIndex & 4) == 4 ? 1 : -1;
+        directions[3] = (autoIndex & 2) == 2 ? 1 : -1;
+        directions[4] = (autoIndex & 1) == 1 ? 1 : -1;
+        this.createGame(directions);
         if (autoIndex == 31) {
             autoIndex = 0;
             isAutoplay = false;
