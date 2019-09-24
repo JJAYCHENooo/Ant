@@ -80,10 +80,12 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
      */
     @Override
     public void gameEndedMessage(){
-        resetGame();
         if (isAutoplay){
-            autoRunGame();
+//            resetGame();
+//            this.creepingGame.setEnded(true);
+//            this.creepingGame = null;
             autoIndex++;
+            autoRunGame();
         }
     }
 
@@ -97,14 +99,20 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
         this.creepingGame.playGame();
     }
 
+    /** 只由 UI 来调用，一旦调用，将停止 autoplay */
     @Override
     public void resetGame() {
+        if(isAutoplay){
+            this.isAutoplay = false;
+            this.autoIndex = 0;
+        }
         this.creepingGame.setEnded(true);
         this.creepingGame = null;
     }
 
     @Override
     public void autoRunGame() {
+        isAutoplay = true;
         int[] directions = new int[5];
         directions[0] = (autoIndex & 16) == 16 ? 1 : -1;
         directions[1] = (autoIndex & 8) == 8 ? 1 : -1;
@@ -133,5 +141,4 @@ public class PlayRoom implements CreepingGameUpdateViewService, UserPanelSendPar
         playRoom.setPlayRoomUpdateViewService(userPanel);
         userPanel.setUserPanelSendParamService(playRoom);
     }
-
 }

@@ -61,7 +61,7 @@ public class CreepingGame {
      * 开始游戏，由 PlayRoom 调用
      */
     public void playGame() {
-        Timer timer = new Timer(300, new ActionListener() {
+        Timer timer = new Timer(150, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!isEnded) {
@@ -77,8 +77,8 @@ public class CreepingGame {
         timeCount += incTime;
 
         UpdateAnts();
-        UpdateView();
         CheckIsEnded();
+        UpdateView();
     }
 
     /**

@@ -139,11 +139,10 @@ public class UserPanel implements PlayRoomUpdateViewService {
     /** 当用户单击 reset 按钮时被调用 */
     public void resetView() {
         setAntsAtStart();
-        
+
         /** 更新当前时间标签 */
         labelTimeCount.setText("0");
     }
-
 
     /** ==================== PlayRoomUpdateViewService ====================== */
 
