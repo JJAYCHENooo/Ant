@@ -48,9 +48,6 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
     //UI布局
     private JPanel mainPanel = new JPanel();
-    private JPanel panelMenu = new JPanel();
-    private JPanel panelRecord = new JPanel();
-    private JPanel panelCommand = new JPanel();
     private JFrame frame;
 
     public UserPanel() {
@@ -60,16 +57,20 @@ public class UserPanel implements PlayRoomUpdateViewService {
         frame.setIconImage(new ImageIcon("./resources/ant.png").getImage());
 
         //布局
-        frame.add(mainPanel, BorderLayout.CENTER);
-        frame.add(panelMenu, BorderLayout.NORTH);
-        panelMenu.add(panelRecord, BorderLayout.WEST);
-        panelMenu.add(panelCommand, BorderLayout.EAST);
-        panelCommand.add(resetButton);
-        panelCommand.add(startButton);
-        panelCommand.add(autoPlayButton);
-        panelRecord.add(labelMaxTime, BorderLayout.NORTH);
-        panelRecord.add(labelMinTime, BorderLayout.SOUTH);
-        panelMenu.add(labelTimeCount, BorderLayout.CENTER);
+        frame.add(mainPanel);
+        mainPanel.setLayout(null);
+        mainPanel.add(startButton);
+        startButton.setBounds(700, 15, 75, 25);
+        mainPanel.add(autoPlayButton);
+        autoPlayButton.setBounds(790, 15, 85, 25);
+        mainPanel.add(resetButton);
+        resetButton.setBounds(610, 15, 75, 25);
+        mainPanel.add(labelTimeCount);
+        labelTimeCount.setBounds(400, 15, 20, 25);
+        mainPanel.add(labelMaxTime);
+        labelMaxTime.setBounds(5, 5, 100, 10);
+        mainPanel.add(labelMinTime);
+        labelMinTime.setBounds(5, 20, 100, 10);
 
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,7 +85,7 @@ public class UserPanel implements PlayRoomUpdateViewService {
             antsDirectionChangeButtons[i] = new JButton("Turn");
         }
 
-        mainPanel.setLayout(null);
+
 
         /**设置蚂蚁初始参数
          * 将蚂蚁相关标签添加到 Panel 并显示
@@ -92,10 +93,16 @@ public class UserPanel implements PlayRoomUpdateViewService {
         setAntsAtStart();
 
         /** 为开始按钮添加响应事件 */
-        startButton.addActionListener(e -> userPanelSendParamService.createGame(antsDirections));
+        startButton.addActionListener(e -> {
+            userPanelSendParamService.createGame(antsDirections);
+            buttonDisable();
+        });
 
         /** 为 autoPlay 按钮添加响应事件*/
-        autoPlayButton.addActionListener(e -> userPanelSendParamService.autoRunGame());
+        autoPlayButton.addActionListener(e -> {
+            userPanelSendParamService.autoRunGame();
+            buttonDisable();
+        });
 
         /** 为蚂蚁的转向按钮添加响应事件 */
         for(int i = 0; i < 5; i++) {
@@ -105,9 +112,28 @@ public class UserPanel implements PlayRoomUpdateViewService {
 
         /** 为 reset 按钮添加响应事件 */
         resetButton.addActionListener(e -> {
+            buttonEnable();
             userPanelSendParamService.resetGame();
             resetView();
         });
+    }
+
+    /** 当游戏运行时对部分按钮的禁用和不可见处理 */
+    private void buttonDisable() {
+        startButton.setEnabled(false);
+        autoPlayButton.setEnabled(false);
+        for(int i = 0; i < 5; i++) {
+            antsDirectionChangeButtons[i].setVisible(false);
+        }
+    }
+
+    /** 当游戏运行结束对部分按钮的恢复 */
+    private void buttonEnable() {
+        startButton.setEnabled(true);
+        autoPlayButton.setEnabled(true);
+        for(int i = 0; i < 5; i++) {
+            antsDirectionChangeButtons[i].setVisible(true);
+        }
     }
 
     private void setAntDirection(int antIndex, int antDirection) {
