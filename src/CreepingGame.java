@@ -72,26 +72,26 @@ public class CreepingGame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!isEnded) {
-                    NextStep();
+                    nextStep();
                 }
             }
         });
         timer.start();
     }
 
-    private void NextStep() {
+    private void nextStep() {
         /* 更新时间 */
         timeCount += incTime;
 
-        UpdateAnts();
-        CheckIsEnded();
-        UpdateView();
+        updateAnts();
+        checkIsEnded();
+        updateView();
     }
 
     /**
      * 更新蚂蚁的位置和方向
      */
-    private void UpdateAnts() {
+    private void updateAnts() {
         Ant[] sortedAnts = new Ant[ants.length];
 
         for (int i = 0; i < ants.length; i++) {
@@ -100,8 +100,8 @@ public class CreepingGame {
         }
 
         Arrays.sort(sortedAnts, Comparator.comparingInt(Ant::getPosition));
-        int positions[] = new int[ants.length];
-        int directions[] = new int[ants.length];
+        int[] positions = new int[ants.length];
+        int[] directions = new int[ants.length];
         for (int i = 0; i < ants.length; i++) {
             positions[i] = sortedAnts[i].getPosition();
             directions[i] = sortedAnts[i].getDirection();
@@ -116,7 +116,7 @@ public class CreepingGame {
     /**
      * 传递更新后的游戏数据，让 CreepingGameDelegate 更新 UI 信息
      */
-    private void UpdateView() {
+    private void updateView() {
         creepingGameUpdateViewService.updateView(getAntsPositions(), getAntsDirections(), timeCount);
         if(isEnded){
             creepingGameUpdateViewService.updateRecordTime(timeCount);
@@ -143,7 +143,7 @@ public class CreepingGame {
     /**
      * 判断游戏是否结束，若结束，设置 isEnded 为 true.
      */
-    private void CheckIsEnded() {
+    private void checkIsEnded() {
         for (int i = 0; i < ants.length; i++) {
             int position = ants[i].getPosition();
             if (position > 0 && position < pole.getLength()) {
